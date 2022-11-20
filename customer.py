@@ -6,13 +6,13 @@ class Customer:
         self.pin = custPin
         self.balance = custBalance
 
-    def cekId(self):
+    def checkId(self):
         return self.id
 
-    def cekPin(self):
+    def checkPin(self):
         return self.pin
 
-    def cekBalance(self):
+    def checkBalance(self):
         return self.balance
 
     def withdrawBalance(self, nominal):

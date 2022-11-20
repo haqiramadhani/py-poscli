@@ -8,7 +8,7 @@ while True:
     id = int(input("Masukan pin anda: "))
     trial = 0
 
-    while (id != int(atm.cekPin()) and trial < 3):
+    while (id != int(atm.checkPin()) and trial < 3):
         id = int(input("Pin anda salah. Silakan masukkan lagi: "))
         trial += 1
 
@@ -23,21 +23,21 @@ while True:
         selectmenu = int(input("\nSilakan pilih menu: "))
 
         if selectmenu == 1:
-            print("\nSaldo anda sekarang: Rp. " + str(atm.cekBalance()) + "\n")
+            print("\nSaldo anda sekarang: Rp. " + str(atm.checkBalance()) + "\n")
 
         elif selectmenu == 2:
             nominal = float(input("Masukkan nominal saldo: "))
             verify_withdrawal = input("Konfirmasi: Anda akan melakukan debet dengan nominal berikut ? y/n\n" + str(nominal) + "\n")
             
             if verify_withdrawal == "y":
-                print("Saldo awal anda adalah: Rp. " + str(atm.cekBalance()) + "\n")
+                print("Saldo awal anda adalah: Rp. " + str(atm.checkBalance()) + "\n")
             else:
                 break
 
-            if nominal <= atm.cekBalance():
+            if nominal <= atm.checkBalance():
                 atm.withdrawBalance(nominal)
                 print("Transaksi debet berhasil!")
-                print("Saldo sisa sekarang: Rp. " + str(atm.cekBalance()) + "\n")
+                print("Saldo sisa sekarang: Rp. " + str(atm.checkBalance()) + "\n")
             else:
                 print("Maaf, saldo anda tidak mencukupi untuk melakukan debet!")
                 print("Silakan lakukan penambahan nominal saldo!")
@@ -48,13 +48,13 @@ while True:
             
             if verify_withdrawal == "y":
                 atm.depositBalance(nominal)
-                print("Saldo anda sekarang adalah: Rp. " + str(atm.cekBalance()) + "\n")
+                print("Saldo anda sekarang adalah: Rp. " + str(atm.checkBalance()) + "\n")
             else:
                 break
 
         elif selectmenu == 4:
             verify_pin = int(input("masukkan pin anda: "))
-            while verify_pin != int(atm.cekPin()):
+            while verify_pin != int(atm.checkPin()):
                 print("pin anda salah, silakan masukkan pin: ")
 
             updated_pin = int(input("silakan masukkan pin baru: "))
@@ -71,7 +71,7 @@ while True:
             print("Resi tercetak otomatis saat anda keluar. \n Harap simpan tanda terima ini \n sebagai bukti transaksi anda.")
             print("No. Rekord: ", random.randint(100000, 1000000))
             print("Tanggal: ", datetime.datetime.now())
-            print("Saldo akhir: ", str(atm.cekBalance()))
+            print("Saldo akhir: ", str(atm.checkBalance()))
             print("Terima kasih telah menggunakan ATM Progate!")
             exit()
 
