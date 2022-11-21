@@ -12,6 +12,9 @@ class Customer:
     def checkPin(self):
         return self.pin
 
+    def changePin(self, newPin):
+        self.pin = newPin
+
     def checkBalance(self):
         return self.balance
 

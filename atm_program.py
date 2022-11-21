@@ -54,8 +54,9 @@ while True:
 
         elif selectmenu == 4:
             verify_pin = int(input("masukkan pin anda: "))
+            trial = 0
             while verify_pin != int(atm.checkPin()):
-                print("pin anda salah, silakan masukkan pin: ")
+                verify_pin = int(input("pin anda salah, silakan masukkan pin: "))
 
             updated_pin = int(input("silakan masukkan pin baru: "))
             print("pin anda berhasil diganti!")
@@ -63,6 +64,7 @@ while True:
             verify_newpin = int(input("coba masukkan pin baru: "))
 
             if verify_newpin == updated_pin:
+                atm.changePin(updated_pin)
                 print("pin baru anda sukses!")
             else:
                 print("maaf, pin anda salah! ")
